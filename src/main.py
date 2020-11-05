@@ -1,7 +1,6 @@
 import requests
 from datetime import timedelta, date
 import json
-from pprint import pprint as pp
 from logger import log_settings
 import numpy as np
 import matplotlib
@@ -47,8 +46,8 @@ if __name__ == "__main__":
     ax1 = fig1.add_subplot(111)
     ax1.set_ylabel('Stringency')
     ax1.set_xlabel('date')
-    ax1.set_title("Simple plot Strinency vs date")
-    ax1.scatter(arr2, arr1, color='green', s=0.5, label='Str')
+    ax1.set_title("Simple plot Stringency vs date")
+    ax1.scatter(arr2, arr1, color='green', s=5, label='Str')
     ax1.set_xlim(dd1, dd2)
     ax1.legend()
     plt.gcf().autofmt_xdate()
