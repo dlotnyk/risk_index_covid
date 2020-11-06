@@ -152,7 +152,7 @@ class MathModel:
         :return: tuple of RI for Contact Strategies user defined or default 60-low, 70-default, 80-high
         """
         self.fit_parameters()
-        app_log.info(f"RI are: {self.get_main_data}")
+        app_log.debug(f"RI are: {self.get_main_data}")
         return self.get_main_data
 
 
