@@ -9,10 +9,10 @@ def log_settings():
     my_handler = RotatingFileHandler(logFile, mode="a", maxBytes=20 * 1024 * 1024, backupCount=2, encoding=None,
                                      delay=False)
     my_handler.setFormatter(log_formatter)
-    my_handler.setLevel(logging.DEBUG)
+    my_handler.setLevel(logging.INFO)
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(log_formatter)
-    console_handler.setLevel(logging.INFO)
+    console_handler.setLevel(logging.DEBUG)
     app_log = logging.getLogger("RiskIndex")
     app_log.setLevel(logging.DEBUG)
     if len(app_log.handlers) < 2:
