@@ -4,6 +4,7 @@ import json
 import time
 from logger import log_settings
 import numpy as np
+import math
 import matplotlib
 matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
@@ -11,7 +12,7 @@ from math_model import MathModel
 
 app_log = log_settings()
 
-date1 = "2020-09-01"
+date1 = "2020-06-01"
 date2 = "2020-10-29"
 country_code = "SVK"
 stringency = "stringency"
@@ -34,11 +35,10 @@ def take_date():
     response = requests.request("GET", url, headers=headers, data=payload)
     resp = json.loads(response.text)
     dates = list()
-    values = list()
-    values_high = list()
-    values_low = list()
-    d_dates = list()
     ri_list = list()
+    ri_high = list()
+    ri_low = list()
+    d_dates = list()
     si_list = list()
     cases_list = list()
     death_list = list()
@@ -53,15 +53,15 @@ def take_date():
             cases_list.append(cases)
             ri, ri_h, ri_l = MathModel(si).main_math
             si_list.append(si)
-            values.append(ri)
-            values_high.append(ri_h)
-            values_low.append(ri_l)
-            death_list.append(dead)
+            ri_list.append(ri)
+            ri_high.append(ri_h)
+            ri_low.append(ri_l)
+            death_list.append(math.log(cases))
         except AttributeError:
             app_log.info(f"No data for `{sdate}`")
             d_dates.pop()
             dates.pop()
-    return dates, si_list, country_code, values
+    return dates, si_list, country_code, ri_list, cases_list, death_list
 
 
 if __name__ == "__main__":
