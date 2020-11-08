@@ -31,7 +31,6 @@ def get_app():
     @flask_app.route("/home")
     def home():
         app_log.debug("Route `home` is called")
-        # return render_template("layout.html")
         return render_template("mainPage.html")
 
     @flask_app.route("/simple_chart")
@@ -45,19 +44,10 @@ def get_app():
                                                              start_date=s_date,
                                                              end_date=e_date,
                                                              contact_strategy=contact_strategy)
-        legend = "Stringency index"
-        legend2 = "Risk index"
-        legend3 = "Cases"
-        legend4 = "Deaths"
         app_log.info(f"country `{country_code}`, from `{s_date}` to "
                      f"`{e_date}` strat {contact_strategy}")
         return jsonify(dates=dates, si=si, country=country, cases=cases,
                        log_cases=log_cases, ri=ri)
-        # return render_template('chart.html', country=country, labels=dates,
-        #                        values=si,  legend=legend,
-        #                        values2=ri, legend2=legend2,
-        #                        values3=cases, legend3=legend3,
-        #                        values4=death, legend4=legend4)
     return flask_app
 
 
@@ -67,6 +57,4 @@ if __name__ == "__main__":
     http_thread.start()
     time.sleep(120)
     http_thread.stop()
-    # get_app().debug = True
-    # get_app().run()
     app_log.info("flask app stops")
