@@ -36,11 +36,16 @@ def get_app():
     @flask_app.route("/simple_chart")
     def chart():
         app_log.debug("Route `Simple_chart` is called")
-        dates, si, country, ri = take_date()
+        dates, si, country, ri, cases, death = take_date()
         legend = "Stringency index"
         legend2 = "Risk index"
-        return render_template('chart.html', values=si, labels=dates, legend=legend, country=country,
-                               values2=ri, labels2=dates)
+        legend3 = "Cases"
+        legend4 = "Deaths"
+        return render_template('chart.html', country=country, labels=dates,
+                               values=si,  legend=legend,
+                               values2=ri, legend2=legend2,
+                               values3=cases, legend3=legend3,
+                               values4=death, legend4=legend4)
 
     @flask_app.route("/line_chart")
     def line_chart():
@@ -68,4 +73,6 @@ if __name__ == "__main__":
     http_thread.start()
     time.sleep(60)
     http_thread.stop()
+    # get_app().debug = True
+    # get_app().run()
     app_log.info("flask app stops")

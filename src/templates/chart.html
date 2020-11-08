@@ -21,12 +21,23 @@
          <div class="row">  
              <div class="col-5">
                     <canvas id="myChart" width="600" height="400"></canvas>
-                    <p id="caption">The chart is displaying a simple line chart.</p>
+                    <p id="caption">Stringency.</p>
              </div>
              <div class="col-2"></div>
              <div class="col-5">
                      <canvas id="myChart2" width="600" height="400"></canvas>
-                     <p id="caption">The chart is displaying a simple line chart2.</p>
+                     <p id="caption">Risk.</p>
+             </div>
+        </div>
+        <div class="row">  
+             <div class="col-5">
+                    <canvas id="myChart3" width="600" height="400"></canvas>
+                    <p id="caption">Cases.</p>
+             </div>
+             <div class="col-2"></div>
+             <div class="col-5">
+                     <canvas id="myChart4" width="600" height="400"></canvas>
+                     <p id="caption">Deaths.</p>
              </div>
         </div>
       </div>
@@ -95,11 +106,11 @@
       });
         // define the chart data 2
       var chartData2 = {
-        labels : [{% for item in labels2 %}
+        labels : [{% for item in labels %}
                    "{{item}}",
                   {% endfor %}],
         datasets : [{
-            label: '{{ legend }}',
+            label: '{{ legend2 }}',
             fill: false,
             cubicInterpolationMode: 'monotone',
             lineTension: 0.1,
@@ -132,6 +143,86 @@
       var myChart2 = new Chart(ctx, {
         type: 'line',
         data: chartData2,
+      });
+            // define the chart data 3
+      var chartData3 = {
+        labels : [{% for item in labels %}
+                   "{{item}}",
+                  {% endfor %}],
+        datasets : [{
+            label: '{{ legend3 }}',
+            fill: false,
+            cubicInterpolationMode: 'monotone',
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data : [{% for item in values3 %}
+                      {{item}},
+                    {% endfor %}],
+            spanGaps: false
+        }]
+      }
+
+      // get chart canvas
+      var ctx = document.getElementById("myChart3").getContext("2d");
+
+      // create the chart using the chart canvas
+      var myChart3 = new Chart(ctx, {
+        type: 'line',
+        data: chartData3,
+      });
+                // define the chart data 4
+      var chartData4 = {
+        labels : [{% for item in labels %}
+                   "{{item}}",
+                  {% endfor %}],
+        datasets : [{
+            label: '{{ legend4 }}',
+            fill: false,
+            cubicInterpolationMode: 'monotone',
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data : [{% for item in values4 %}
+                      {{item}},
+                    {% endfor %}],
+            spanGaps: false
+        }]
+      }
+
+      // get chart canvas
+      var ctx = document.getElementById("myChart4").getContext("2d");
+
+      // create the chart using the chart canvas
+      var myChart4 = new Chart(ctx, {
+        type: 'line',
+        data: chartData4,
       });
     </script>
 
