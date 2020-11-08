@@ -183,7 +183,7 @@
                         contact_strategy: $("#inputContactStrategy").val()
                     },
                     function (data) {
-                        var chartData = {
+                        let chartData = {
                             labels: data.dates,
                             datasets: [{
                                 label: "Stringency",
@@ -210,16 +210,16 @@
                         }
 
                         // get chart canvas
-                        var ctx = document.getElementById("myChart").getContext("2d");
+                        let ctx = document.getElementById("myChart").getContext("2d");
 
                         // create the chart using the chart canvas
-                        var myChart = new Chart(ctx, {
+                        let myChart = new Chart(ctx, {
                             type: 'line',
                             data: chartData,
                         });
                         // second chart
 
-                        var chartData2 = {
+                        let chartData2 = {
                             labels: data.dates,
                             datasets: [{
                                 label: "Risk",
@@ -246,16 +246,16 @@
                         }
 
                         // get chart canvas
-                        var ctx = document.getElementById("myChart2").getContext("2d");
+                        let ctx1 = document.getElementById("myChart2").getContext("2d");
 
                         // create the chart using the chart canvas
-                        var myChart2 = new Chart(ctx, {
+                        let myChart2 = new Chart(ctx1, {
                             type: 'line',
                             data: chartData2,
                         });
                         // third chart
 
-                        var chartData3 = {
+                        let chartData3 = {
                             labels: data.dates,
                             datasets: [{
                                 label: "Cases",
@@ -282,16 +282,16 @@
                         }
 
                         // get chart canvas
-                        var ctx = document.getElementById("myChart3").getContext("2d");
+                        let ctx2 = document.getElementById("myChart3").getContext("2d");
 
                         // create the chart using the chart canvas
-                        var myChart3 = new Chart(ctx, {
+                        let myChart3 = new Chart(ctx2, {
                             type: 'line',
                             data: chartData3,
                         });
                         // fourth chart
 
-                        var chartData4 = {
+                        let chartData4 = {
                             labels: data.dates,
                             datasets: [{
                                 label: "Log Cases",
@@ -318,10 +318,10 @@
                         }
 
                         // get chart canvas
-                        var ctx = document.getElementById("myChart4").getContext("2d");
+                        let ctx3 = document.getElementById("myChart4").getContext("2d");
 
                         // create the chart using the chart canvas
-                        var myChart4 = new Chart(ctx, {
+                        let myChart4 = new Chart(ctx3, {
                             type: 'line',
                             data: chartData4,
                         });
