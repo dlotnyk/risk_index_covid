@@ -3,7 +3,7 @@ import time
 from wsgiref.simple_server import make_server
 from flask import Flask, render_template, url_for
 from logger import log_settings
-from main import take_date
+from api_call import take_date
 
 app_log = log_settings()
 
