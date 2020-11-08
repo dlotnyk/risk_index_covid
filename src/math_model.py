@@ -75,7 +75,6 @@ class MathModel:
         self._fit_dict = {self.s_dict_begin: self.days_params.get(day1, None),
                           self.s_dict_end: self.days_params.get(day2, None),
                           self.s_dict_result: {}}
-        app_log.debug("fit dict called")
 
     @property
     def testing_delay(self) -> float:
@@ -153,10 +152,12 @@ class MathModel:
         :return: tuple of RI for Contact Strategies user defined or default 60-low, 70-default, 80-high
         """
         self.fit_parameters()
+        app_log.debug(f"RI are: {self.get_main_data}")
         return self.get_main_data
 
 
 if __name__ == "__main__":
+    app_log.info("math_model starts")
     A = MathModel(22)
     print(f"Testing delay: {A.testing_delay}")
     A.fit_parameters()
@@ -168,3 +169,4 @@ if __name__ == "__main__":
                     contact_strategy=65,
                     contact_strategy_high=90,
                     contact_strategy_low=55).main_math)
+    app_log.info("math_model stops")
