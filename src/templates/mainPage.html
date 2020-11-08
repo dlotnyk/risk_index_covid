@@ -20,7 +20,7 @@
 <body style="background-color: #d9d9d9;">
     <div class="container">
         <div class="row-1">
-            <h3 class="text-center" style="padding-top: 3rem">Calculation Risk Index For Buisines Purposes</h3>
+            <h3 class="text-center" style="padding-top: 3rem">Calculation Risk Index For Bussines Purposes</h3>
         </div>
         <div class="row" style="margin-top: 3rem">
             <div class="input-group col">
@@ -116,11 +116,15 @@
 
 
         </div>
+        <div id="our_charts">
+
+        </div>
     </div>
 
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.js"
         integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
@@ -143,8 +147,25 @@
         });
 
 
-        $("#calculate-btn").click(function () {
-            alert("Country: " + $("#inputState").val() + ". Dates from: " + $("#startDate").val() + " to: " + $("#endDate").val() + "Contact strategy: " + $("#inputContactStrategy").val());
+        // $("#calculate-btn").click(function () {
+        //     alert("Country: " + $("#inputState").val() + ". Dates from: " + $("#startDate").val() + " to: " + $("#endDate").val() + "Contact strategy: " + $("#inputContactStrategy").val());
+        // });
+        $(function() {
+          $('#calculate-btn').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/simple_chart',{state: $("#inputState").val(),
+                start_date: $("#startDate").val(),
+                end_date: $("#endDate").val(),
+                contact_strategy: $("#inputContactStrategy").val()},
+                function(data) {
+                console.log(data.dates)
+                    console.log(data.si)
+              // do nothing
+            });
+              // let ourChart = $.get("/simple_chart")
+              // $("#our_charts").append(ourChart);
+            return false;
+          });
         });
     </script>
 

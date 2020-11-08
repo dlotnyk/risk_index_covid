@@ -1,7 +1,7 @@
 import threading
 import time
 from wsgiref.simple_server import make_server
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, jsonify, request
 from logger import log_settings
 from api_call import take_date
 
@@ -31,39 +31,33 @@ def get_app():
     @flask_app.route("/home")
     def home():
         app_log.debug("Route `home` is called")
-        return render_template("home.html")
+        # return render_template("layout.html")
+        return render_template("mainPage.html")
 
     @flask_app.route("/simple_chart")
     def chart():
         app_log.debug("Route `Simple_chart` is called")
-        dates, si, country, ri, cases, death = take_date()
+        country_code = request.args.get("state")
+        s_date = request.args.get("start_date")
+        e_date = request.args.get("end_date")
+        contact_strategy = request.args.get("contact_strategy")
+        dates, si, country, ri, cases, log_cases = take_date(country_code=country_code,
+                                                             start_date=s_date,
+                                                             end_date=e_date,
+                                                             contact_strategy=contact_strategy)
         legend = "Stringency index"
         legend2 = "Risk index"
         legend3 = "Cases"
         legend4 = "Deaths"
-        return render_template('chart.html', country=country, labels=dates,
-                               values=si,  legend=legend,
-                               values2=ri, legend2=legend2,
-                               values3=cases, legend3=legend3,
-                               values4=death, legend4=legend4)
-
-    @flask_app.route("/line_chart")
-    def line_chart():
-        legend = 'Temperatures'
-        temperatures = [73.7, 73.4, 73.8, 72.8, 68.7, 65.2,
-                        61.8, 58.7, 58.2, 58.3, 60.5, 65.7,
-                        70.2, 71.4, 71.2, 70.9, 71.3, 71.1]
-        times = ['12:00PM', '12:10PM', '12:20PM', '12:30PM', '12:40PM', '12:50PM',
-                 '1:00PM', '1:10PM', '1:20PM', '1:30PM', '1:40PM', '1:50PM',
-                 '2:00PM', '2:10PM', '2:20PM', '2:30PM', '2:40PM', '2:50PM']
-        return render_template('line_chart.html', values=temperatures, labels=times, legend=legend)
-
-    @flask_app.route("/si_chart")
-    def si_chart():
-        dates, si, country = take_date()
-        legend = "Stringency index"
-        return render_template("line_chart.html", values=si, labels=dates, legend=legend, country=country)
-
+        app_log.info(f"country `{country_code}`, from `{s_date}` to "
+                     f"`{e_date}` strat {contact_strategy}")
+        return jsonify(dates=dates, si=si, country=country, cases=cases,
+                       log_cases=log_cases, ri=ri)
+        # return render_template('chart.html', country=country, labels=dates,
+        #                        values=si,  legend=legend,
+        #                        values2=ri, legend2=legend2,
+        #                        values3=cases, legend3=legend3,
+        #                        values4=death, legend4=legend4)
     return flask_app
 
 
@@ -71,7 +65,7 @@ if __name__ == "__main__":
     app_log.info("flask app starts")
     http_thread = WsgiRefServer(get_app())
     http_thread.start()
-    time.sleep(60)
+    time.sleep(120)
     http_thread.stop()
     # get_app().debug = True
     # get_app().run()
