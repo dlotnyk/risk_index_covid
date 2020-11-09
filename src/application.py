@@ -6,7 +6,6 @@ import requests
 from datetime import timedelta, date
 import json
 import math
-from logger import log_settings
 
 stringency = "stringency"
 cases_str = "confirmed"
