@@ -126,24 +126,16 @@
         <div id="our_charts">
             <div class="row">
                 <div class="col-5" id="myChartDiv">
-                    <canvas id="myChart" width="600" height="400"></canvas>
-                    <p id="caption1">Stringency.</p>
                 </div>
                 <div class="col-2"></div>
                 <div class="col-5" id="myChartDiv2">
-                    <canvas id="myChart2" width="600" height="400"></canvas>
-                    <p id="caption2">Risk.</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-5" id="myChartDiv3">
-                    <canvas id="myChart3" width="600" height="400"></canvas>
-                    <p id="caption3">Cases.</p>
                 </div>
                 <div class="col-2"></div>
                 <div class="col-5" id="myChartDiv4">
-                    <canvas id="myChart4" width="600" height="400"></canvas>
-                    <p id="caption4">Log cases.</p>
                 </div>
             </div>
         </div>
@@ -156,12 +148,12 @@
             <footer>
                 <p><b>Our risk index calculations are based on: </b></p>
                 <ul>
-                    <li>reproducion numbers - well described in the <a href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(20)30157-2/fulltext?fbclid=IwAR0bzrGXFdN5DBYTN8JpjLczNRt0MjXrhqxNK3mMj_FQ-lqNWdHnwUy1Nmk">paper</a></li>
+                    <li>reproducion number - described in the <a href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(20)30157-2/fulltext?fbclid=IwAR0bzrGXFdN5DBYTN8JpjLczNRt0MjXrhqxNK3mMj_FQ-lqNWdHnwUy1Nmk">paper</a></li>
                     <li>stringency index - obtained by <a href="https://covidtracker.bsg.ox.ac.uk/about-api">API</a></li>
                 </ul>
             </footer>
         </div>
-        
+
     </div>
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.js"
@@ -178,7 +170,7 @@
         crossorigin="anonymous"></script>
 
     <script>
-        Chart.defaults.global.responsive = false;
+        Chart.defaults.global.responsive = true;
         $('.input-daterange').datepicker({
             format: "yyyy-mm-dd",
             startDate: "2020-01-30",
@@ -238,13 +230,13 @@
 
                             let canvas1 = $('<canvas id="myChart" width="600" height="400"></canvas>');
                             let caption1 = $('<p id="caption1"></p>');
-                            caption1.text('Stringency - ');
+                            caption1.text('Risk - ');
                             $('#myChartDiv').append(canvas1);
                             $('#myChartDiv').append(caption1);
 
                             let canvas2 = $('<canvas id="myChart2" width="600" height="400"></canvas>');
                             let caption2 = $('<p id="caption2"></p>');
-                            caption2.text('Risk - ');
+                            caption2.text('Stringency - ');
                             $('#myChartDiv2').append(canvas2);
                             $('#myChartDiv2').append(caption2);
 
@@ -302,6 +294,11 @@
 
                             // create the chart using the chart canvas
                             let myChart2 = new Chart(ctx1, {
+                                type: 'line',
+                                data: chartData,
+                            });
+
+                            let myChart = new Chart(ctx, {
                                 type: 'line',
                                 data: chartData2,
                             });
