@@ -210,7 +210,7 @@
                             let chartData = {
                                 labels: data.dates,
                                 datasets: [{
-                                    label: "Stringency",
+                                    label: "Stringency Index",
                                     fill: false,
                                     lineTension: 0.1,
                                     backgroundColor: "rgba(75,192,192,0.4)",
@@ -235,25 +235,25 @@
 
                             let canvas1 = $('<canvas id="myChart" width="700" height="500"></canvas>');
                             let caption1 = $('<p id="caption1"></p>');
-                            caption1.text('Risk - ');
+                            caption1.text('Represents the Risk Index for selected country and Contact Tracing Strategy. Note: Values greater than 50 correspond to a growing forecasted number of active cases, i.e Risk becomes higher.');
                             $('#myChartDiv').append(canvas1);
                             $('#myChartDiv').append(caption1);
 
                             let canvas2 = $('<canvas id="myChart2" width="600" height="400"></canvas>');
                             let caption2 = $('<p id="caption2"></p>');
-                            caption2.text('Stringency - ');
+                            caption2.text('Stringency Index represents the Government response to COVID-19 situation. Higher values correspond to a stronger restrictions in the country.');
                             $('#myChartDiv2').append(canvas2);
                             $('#myChartDiv2').append(caption2);
 
                             let canvas3 = $('<canvas id="myChart3" width="600" height="400"></canvas>');
                             let caption3 = $('<p id="caption3"></p>');
-                            caption3.text('Cases - ');
+                            caption3.text('Overall cases for a selected country in the date range');
                             $('#myChartDiv3').append(canvas3);
                             $('#myChartDiv3').append(caption3);
 
                             let canvas4 = $('<canvas id="myChart4" width="600" height="400"></canvas>');
                             let caption4 = $('<p id="caption4"></p>');
-                            caption4.text('Cases in logarithmic scale - ');
+                            caption4.text('Overall Cases in the logarithmic scale.');
                             $('#myChartDiv4').append(canvas4);
                             $('#myChartDiv4').append(caption4);
 
@@ -265,7 +265,7 @@
                             let chartData2 = {
                                 labels: data.dates,
                                 datasets: [{
-                                    label: "Risk",
+                                    label: "Risk Index",
                                     fill: false,
                                     lineTension: 0.1,
                                     backgroundColor: "rgba(0, 102, 0, 0.4)",
