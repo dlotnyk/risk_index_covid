@@ -21,8 +21,13 @@
 <body style="background-color: #d9d9d9;">
     <div class="container">
         <div class="row-1">
-            <h3 class="text-center" style="padding-top: 3rem">Calculation Risk Index For Bussines Purposes</h3>
+            <h3 class="text-center" style="padding-top: 3rem"><b>Calculation Risk Index For Bussines Purposes</b></h3>
         </div>
+
+        <div class="row">
+            <h5 class="text-left" style="padding-top: 3rem; color:#262626bd;"> <b>Contact Tracing Strategy</b> - a number of infected persons covered by tests for selected country.</h5>
+        </div>
+
         <div class="row" style="margin-top: 3rem">
             <div class="input-group col">
                 <select class="form-control" id="inputState" style="background-color: #e6e6e6"
@@ -90,7 +95,7 @@
             <div class="input-group col">
                 <select class="form-control" id="inputContactStrategy" style="background-color: #e6e6e6"
                     placeholder="Contact Strategy">
-                    <option selected>Contact Strategy ...</option>
+                    <option selected>Contact Tracing Strategy ...</option>
                     <option value="20">20 %</option>
                     <option value="25">25 %</option>
                     <option value="30">30 %</option>
@@ -173,7 +178,7 @@
             $('#calculate-btn').on('click', function (e) {
                 e.preventDefault()
 
-                if ($("#inputState").val() === 'Choose country ...' || $("#startDate").val() === '' || $("#endDate").val() === '' || $("#inputContactStrategy").val() === 'Contact Strategy ...') {
+                if ($("#inputState").val() === 'Choose country ...' || $("#startDate").val() === '' || $("#endDate").val() === '' || $("#inputContactStrategy").val() === 'Contact Tracing Strategy ...') {
                     alert('All input fields are required! Check your inputs, please.');
                 } else {
                     if ($('#myChartDiv') && $('#myChartDiv2') && $('#myChartDiv3') && $('#myChartDiv4')) {
