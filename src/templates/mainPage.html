@@ -176,6 +176,10 @@
                 if ($("#inputState").val() === 'Choose country ...' || $("#startDate").val() === '' || $("#endDate").val() === '' || $("#inputContactStrategy").val() === 'Contact Strategy ...') {
                     alert('All input fields are required! Check your inputs, please.');
                 } else {
+                    $('#myChart').removeData(chartData);
+                    $('#myChart2').removeData(chartData2);
+                    $('#myChart3').removeData(chartData3);
+                    $('#myChart4').removeData(chartData4);
                     //$("#our_charts").removeData(data);
                     $.getJSON('/simple_chart', {
                         state: $("#inputState").val(),
