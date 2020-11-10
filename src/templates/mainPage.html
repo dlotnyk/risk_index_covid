@@ -25,7 +25,8 @@
         </div>
 
         <div class="row">
-            <h5 class="text-left" style="padding-top: 3rem; color:#262626bd;"> <b>Contact Tracing Strategy</b> - a number of infected persons covered by tests for selected country.</h5>
+            <h5 class="text-left" style="padding-top: 3rem; color:#262626bd;"> <b>Contact Tracing Strategy</b> - a
+                number of infected persons covered by tests for selected country.</h5>
         </div>
 
         <div class="row" style="margin-top: 3rem">
@@ -144,9 +145,23 @@
                     <canvas id="myChart4" width="600" height="400"></canvas>
                     <p id="caption4">Log cases.</p>
                 </div>
-
             </div>
         </div>
+
+        <div class="row" style="margin-top: 3rem; color:#262626bd;">
+            <h4 class="text-center" style="padding-top: 3rem"><b>The project is designed by Dmytro Lotnyk and Veronika Haskova </b></h3>
+        </div>
+
+        <div class="row" style="margin-top: 2rem; color:#262626bd;">
+            <footer>
+                <p><b>Our risk index calculations are based on: </b></p>
+                <ul>
+                    <li>reproducion numbers - well described in the <a href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(20)30157-2/fulltext?fbclid=IwAR0bzrGXFdN5DBYTN8JpjLczNRt0MjXrhqxNK3mMj_FQ-lqNWdHnwUy1Nmk">paper</a></li>
+                    <li>stringency index - obtained by <a href="https://covidtracker.bsg.ox.ac.uk/about-api">API</a></li>
+                </ul>
+            </footer>
+        </div>
+        
     </div>
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.js"
@@ -222,22 +237,26 @@
                             }
 
                             let canvas1 = $('<canvas id="myChart" width="600" height="400"></canvas>');
-                            let caption1 = $('<p id="caption1">Stringency.</p>');
+                            let caption1 = $('<p id="caption1"></p>');
+                            caption1.text('Stringency - ');
                             $('#myChartDiv').append(canvas1);
                             $('#myChartDiv').append(caption1);
 
                             let canvas2 = $('<canvas id="myChart2" width="600" height="400"></canvas>');
-                            let caption2 = $('<p id="caption2">Risk.</p>');
+                            let caption2 = $('<p id="caption2"></p>');
+                            caption2.text('Risk - ');
                             $('#myChartDiv2').append(canvas2);
                             $('#myChartDiv2').append(caption2);
 
                             let canvas3 = $('<canvas id="myChart3" width="600" height="400"></canvas>');
-                            let caption3 = $('<p id="caption3">Cases.</p>');
+                            let caption3 = $('<p id="caption3"></p>');
+                            caption3.text('Cases - ');
                             $('#myChartDiv3').append(canvas3);
                             $('#myChartDiv3').append(caption3);
 
                             let canvas4 = $('<canvas id="myChart4" width="600" height="400"></canvas>');
-                            let caption4 = $('<p id="caption4">Log cases.</p>');
+                            let caption4 = $('<p id="caption4"></p>');
+                            caption4.text('Cases in logarithmic scale - ');
                             $('#myChartDiv4').append(canvas4);
                             $('#myChartDiv4').append(caption4);
 
