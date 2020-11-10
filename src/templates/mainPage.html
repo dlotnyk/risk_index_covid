@@ -25,7 +25,7 @@
         </div>
 
         <div class="row">
-            <h5 class="text-left" style="padding-top: 3rem; color:#262626bd;"> <b>Contact Tracing Strategy</b> - a
+            <h5 class="text-left" style="padding-top: 3rem; color:#262626bd;"> <b>Contact Tracing Strategy</b> - corresponds to a
                 number of infected persons covered by tests for selected country.</h5>
         </div>
 
@@ -42,7 +42,6 @@
                     <option value="AUT">AUT - Austria</option>
                     <option value="BEL">BEL - Belgium</option>
                     <option value="BGR">BGR - Bulgaria</option>
-                    <option value="BHS">BHS - Bahamas</option>
                     <option value="BIH">BGR - Bosnia and Herzegovina</option>
                     <option value="CAN">CAN - Canada</option>
                     <option value="BGR">CHE - Switzerland</option>
@@ -61,12 +60,10 @@
                     <option value="HUN">HUN - Hungary</option>
                     <option value="IND">IND - India</option>
                     <option value="ITA">ITA - Italy</option>
-                    <option value="LIE">LIE - Liechtenstein</option>
                     <option value="LKA">LKA - Sri Lanka</option>
                     <option value="LTU">LTU - Lithuania</option>
                     <option value="LUX">LUX - Luxembourg</option>
                     <option value="LVA">LVA - Latvia</option>
-                    <option value="MDV">MDV - Maldives</option>
                     <option value="NLD">NLD - Netherlands</option>
                     <option value="NOR">NOR - Norway</option>
                     <option value="PER">PER - Peru</option>
@@ -151,9 +148,9 @@
             <footer>
                 <p><b>Our risk index calculations are based on: </b></p>
                 <ul>
-                    <li>reproducion number - described in the <a href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(20)30157-2/fulltext?fbclid=IwAR0bzrGXFdN5DBYTN8JpjLczNRt0MjXrhqxNK3mMj_FQ-lqNWdHnwUy1Nmk">paper</a>
+                    <li>Reproduction number - is described in the <a href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(20)30157-2/fulltext?fbclid=IwAR0bzrGXFdN5DBYTN8JpjLczNRt0MjXrhqxNK3mMj_FQ-lqNWdHnwUy1Nmk">paper</a>
                     </li>
-                    <li>stringency index - obtained by <a href="https://covidtracker.bsg.ox.ac.uk/about-api">API</a>
+                    <li>Stringency index - is obtained by <a href="https://covidtracker.bsg.ox.ac.uk/about-api">API</a>
                     </li>
                 </ul>
             </footer>
@@ -235,7 +232,7 @@
 
                             let canvas1 = $('<canvas id="myChart" width="700" height="500"></canvas>');
                             let caption1 = $('<p id="caption1"></p>');
-                            caption1.text('Represents the Risk Index for selected country and Contact Tracing Strategy. Note: Values greater than 50 correspond to a growing forecasted number of active cases, i.e Risk becomes higher.');
+                            caption1.text('Represents the Risk Index for selected country and Contact Tracing Strategy. Note: Values greater than 50 correspond to a growing forecasted Reproduction Number of active cases, i.e Risk becomes higher.');
                             $('#myChartDiv').append(canvas1);
                             $('#myChartDiv').append(caption1);
 
