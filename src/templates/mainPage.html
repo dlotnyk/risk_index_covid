@@ -119,23 +119,23 @@
         </div>
         <div id="our_charts">
             <div class="row">
-                <div class="col-5">
+                <div class="col-5" id="myChartDiv">
                     <canvas id="myChart" width="600" height="400"></canvas>
                     <p id="caption1">Stringency.</p>
                 </div>
                 <div class="col-2"></div>
-                <div class="col-5">
+                <div class="col-5" id="myChart2Div">
                     <canvas id="myChart2" width="600" height="400"></canvas>
                     <p id="caption2">Risk.</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-5">
+                <div class="col-5" id="myChart3Div">
                     <canvas id="myChart3" width="600" height="400"></canvas>
                     <p id="caption3">Cases.</p>
                 </div>
                 <div class="col-2"></div>
-                <div class="col-5">
+                <div class="col-5" id="myChart4Div">
                     <canvas id="myChart4" width="600" height="400"></canvas>
                     <p id="caption4">Log cases.</p>
                 </div>
@@ -177,10 +177,10 @@
                     alert('All input fields are required! Check your inputs, please.');
                 } else {
                     if ($('#myChart') && $('#myChart2') && $('#myChart3') && $('#myChart4')) {
-                        $('#myChart').empty();
-                        $('#myChart2').empty();
-                        $('#myChart3').empty();
-                        $('#myChart4').empty();
+                        $('#myChart').remove();
+                        $('#myChart2').remove();
+                        $('#myChart3').remove();
+                        $('#myChart4').remove();
                     }
 
                     //$("#our_charts").removeData(data);
@@ -216,6 +216,13 @@
                                     spanGaps: false
                                 }]
                             }
+
+                            let canvas1 = $('<canvas id="myChart" width="600" height="400"></canvas>');
+                            let caption1 = $('<p id="caption1">Stringency.</p>');
+
+                            $('#myChartDiv').append(canvas1);
+                            $('#myChartDiv').append(caption1);
+
 
                             // get chart canvas
                             let ctx = document.getElementById("myChart").getContext("2d");
