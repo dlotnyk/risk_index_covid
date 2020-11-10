@@ -8,7 +8,7 @@ Calculation of risk index based on Government restrictions.
 
 ## Usage
 - Run `application.py` from PyCharm or from src dir
-`python3 application.py`
+`python3 application.py` under Linux or `python application.py` under Win
 or visit AWS hosted [link](http://flask-aws-ness-inno.eba-ywap8kyv.eu-central-1.elasticbeanstalk.com/)
 where this project is deployed.
 - Open browser on page `localhost:5000`
@@ -18,9 +18,8 @@ where this project is deployed.
 `application.py` is not separeted into several files in order to
 deploy it on AWS using Beanstalk.
 
-## Known bugs
-- all field have to be filled
-- recaclulating remains all data on a graph. only last is shown but 
-the others can be located my mouse.
+## Known issues
+- Free tier of AWS account restricts the overall transfer data which prevents to choose data for a long time range,
+approximately up to 5 months long.
 
 
