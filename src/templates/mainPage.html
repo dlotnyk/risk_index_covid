@@ -176,10 +176,13 @@
                 if ($("#inputState").val() === 'Choose country ...' || $("#startDate").val() === '' || $("#endDate").val() === '' || $("#inputContactStrategy").val() === 'Contact Strategy ...') {
                     alert('All input fields are required! Check your inputs, please.');
                 } else {
-                    $('#myChart').removeData(chartData);
-                    $('#myChart2').removeData(chartData2);
-                    $('#myChart3').removeData(chartData3);
-                    $('#myChart4').removeData(chartData4);
+                    if ($('#myChart') && $('#myChart2') && $('#myChart3') && $('#myChart4')) {
+                        $('#myChart').empty();
+                        $('#myChart2').empty();
+                        $('#myChart3').empty();
+                        $('#myChart4').empty();
+                    }
+
                     //$("#our_charts").removeData(data);
                     $.getJSON('/simple_chart', {
                         state: $("#inputState").val(),
