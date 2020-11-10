@@ -148,8 +148,11 @@
             <footer>
                 <p><b>Our risk index calculations are based on: </b></p>
                 <ul>
-                    <li>reproducion number - described in the <a href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(20)30157-2/fulltext?fbclid=IwAR0bzrGXFdN5DBYTN8JpjLczNRt0MjXrhqxNK3mMj_FQ-lqNWdHnwUy1Nmk">paper</a></li>
-                    <li>stringency index - obtained by <a href="https://covidtracker.bsg.ox.ac.uk/about-api">API</a></li>
+                    <li>reproducion number - described in the <a
+                            href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(20)30157-2/fulltext?fbclid=IwAR0bzrGXFdN5DBYTN8JpjLczNRt0MjXrhqxNK3mMj_FQ-lqNWdHnwUy1Nmk">paper</a>
+                    </li>
+                    <li>stringency index - obtained by <a href="https://covidtracker.bsg.ox.ac.uk/about-api">API</a>
+                    </li>
                 </ul>
             </footer>
         </div>
@@ -228,7 +231,7 @@
                                 }]
                             }
 
-                            let canvas1 = $('<canvas id="myChart" width="600" height="400"></canvas>');
+                            let canvas1 = $('<canvas id="myChart" width="700" height="500"></canvas>');
                             let caption1 = $('<p id="caption1"></p>');
                             caption1.text('Risk - ');
                             $('#myChartDiv').append(canvas1);
@@ -263,20 +266,20 @@
                                     label: "Risk",
                                     fill: false,
                                     lineTension: 0.1,
-                                    backgroundColor: "rgba(75,192,192,0.4)",
-                                    borderColor: "rgba(75,192,192,1)",
+                                    backgroundColor: "rgba(0, 102, 0, 0.4)",
+                                    borderColor: "rgba(0, 102, 0, 1)",
                                     borderCapStyle: 'butt',
                                     borderDash: [],
                                     borderDashOffset: 0.0,
                                     borderJoinStyle: 'miter',
-                                    pointBorderColor: "rgba(75,192,192,1)",
-                                    pointBackgroundColor: "#fff",
+                                    pointBorderColor: "rgba(0, 102, 0, 1)",
+                                    pointBackgroundColor: "rgba(0, 102, 0, 1)",
                                     pointBorderWidth: 1,
                                     pointHoverRadius: 5,
-                                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                    pointHoverBackgroundColor: "rgba(0, 102, 0, 1)",
                                     pointHoverBorderColor: "rgba(220,220,220,1)",
                                     pointHoverBorderWidth: 2,
-                                    pointRadius: 1,
+                                    pointRadius: 2,
                                     pointHitRadius: 10,
                                     data: data.ri,
                                     spanGaps: false
